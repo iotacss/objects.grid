@@ -1,0 +1,20 @@
+{
+  "name": "iotacss-grid",
+  "version": "0.1.0",
+  "description": "Grid object for iotaCSS",
+  "main": "_objects.grid.scss",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:iotacss/objects.grid.git"
+  },
+  "keywords": [
+    "iotacss",
+    "css",
+    "bem",
+    "oocss"
+  ],
+  "dependencies": {
+    "@iotacss/iotacss-default": "0.1.0"
+  },
+  "author": "Dimitris Psaropoulos <info@harby.me>"
+}
