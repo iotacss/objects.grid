@@ -26,7 +26,6 @@ $iota-grid-gutter-extra   : () !default;
 
   .#{$iota-object-namespace}grid__col {
     display: inline-block;
-    margin-right: -.25em;
     padding-left:   $iota-grid-gutter-default;
     padding-bottom: $iota-grid-gutter-default;
     width: 100%;
