@@ -63,6 +63,7 @@ $iota-grid-gutter-extra   : () !default;
 
     .#{$iota-object-namespace}grid__col {
       padding-left: $size;
+      padding-bottom: $size;
     }
 
   }
