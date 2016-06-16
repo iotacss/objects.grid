@@ -22,9 +22,8 @@ $iota-grid-gutter-extra   : () !default;
 .#{$iota-object-namespace}grid {
   list-style: none;
   margin-left: -$iota-grid-gutter-default;
-}
 
-  .#{$iota-object-namespace}grid__col {
+  & > .#{$iota-object-namespace}grid__col {
     display: inline-block;
     padding-left:   $iota-grid-gutter-default;
     padding-bottom: $iota-grid-gutter-default;
@@ -35,6 +34,7 @@ $iota-grid-gutter-extra   : () !default;
        -moz-box-sizing: border-box;
             box-sizing: border-box;
   }
+}
 
 
 
@@ -61,8 +61,8 @@ $iota-grid-gutter-extra   : () !default;
   .#{$iota-object-namespace}grid--#{$name} {
     margin-left: -$size;
 
-    .#{$iota-object-namespace}grid__col {
-      padding-left: $size;
+    & > .#{$iota-object-namespace}grid__col {
+      padding-left:   $size;
       padding-bottom: $size;
     }
 
