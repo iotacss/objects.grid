@@ -22,3 +22,22 @@ $iota-grid--aligned       : false !default;
 $iota-grid-gutter-default : 20px !default;
 $iota-grid-gutter-extra   : () !default;
 ```
+
+
+### Example
+
+```html
+<div class="o-grid">
+
+    <div class="o-grid__col u-1/2">
+      Column 1
+    </div><!--
+
+ --><div class="o-grid__col u-1/2">
+      Column 1
+    </div>
+
+</div>
+```
+
+Do you see this empty HTML comment '<!-- -->'? This is used to fight the space between the grid columns, because they are inline block elements. If you want to read more about this fix or find some alternatives, head over [here](https://css-tricks.com/fighting-the-space-between-inline-block-elements/).
