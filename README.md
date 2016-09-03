@@ -18,9 +18,7 @@ npm install --save iotacss-grid
 ### Options ###
 
 ```
-$iota-grid--centered      : false !default;
+$iota-grid--aligned       : false !default;
 $iota-grid-gutter-default : 20px !default;
 $iota-grid-gutter-extra   : () !default;
 ```
-
-It was inspired by [Toast](https://daneden.github.io/Toast/).

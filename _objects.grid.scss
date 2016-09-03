@@ -12,7 +12,7 @@
 // Options
 
 $iota-grid                : true;
-$iota-grid--centered      : false !default;
+$iota-grid--aligned       : false !default;
 $iota-grid-gutter-default : 20px !default;
 $iota-grid-gutter-extra   : () !default;
 
@@ -30,23 +30,43 @@ $iota-grid-gutter-extra   : () !default;
     width: 100%;
     min-height: 1px;
     vertical-align: top;
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
   }
 }
 
 
 
 
-// Centered Grid Object
+// Grid Object Extra Alignents
 
-@if ($iota-grid--centered == true) {
+@if ( $iota-grid--aligned == true ) {
 
-  .#{$iota-object-namespace}grid__item--centered {
-    display: block;
-    margin-left:  auto;
-    margin-right: auto;
+  .#{$iota-object-namespace}grid--right {
+    text-align: right;
+
+    & > .#{$iota-object-namespace}grid__col {
+      text-align: left;
+    }
+  }
+
+  .#{$iota-object-namespace}grid--center {
+    text-align: center;
+
+    & > .#{$iota-object-namespace}grid__col {
+      text-align: left;
+    }
+  }
+
+  .#{$iota-object-namespace}grid--middle {
+    & > .#{$iota-object-namespace}grid__col {
+      vertical-align: middle;
+    }
+  }
+
+  .#{$iota-object-namespace}grid--bottom {
+    & > .#{$iota-object-namespace}grid__col {
+      vertical-align: bottom;
+    }
   }
 
 }
