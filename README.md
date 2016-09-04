@@ -35,7 +35,7 @@ $iota-grid-gutter-extra   : () !default;
     </div><!--
 
  --><div class="o-grid__col u-1/2">
-      Column 1
+      Column 2
     </div>
 
 </div>
