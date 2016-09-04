@@ -19,6 +19,7 @@ npm install --save iotacss-grid
 
 ```
 $iota-grid--aligned       : false !default;
+$iota-grid--rev           : false !default;
 $iota-grid-gutter-default : 20px !default;
 $iota-grid-gutter-extra   : () !default;
 ```
