@@ -3,92 +3,52 @@
 
 
 
-// Dependencies
-//   Settings.Default
-
-
-
-
 // Options
 
-$iota-grid                : true;
-$iota-grid--aligned       : false !default;
-$iota-grid--rev           : false !default;
-$iota-grid-gutter-default : 20px !default;
-$iota-grid-gutter-extra   : () !default;
+$iota-objs-grid                    : true;
+
+$iota-objs-grid-namespace          : 'grid' !default;
+$iota-objs-grid-column-name        : 'col' !default;
+$iota-objs-grid-align-right-name   : 'right' !default;
+$iota-objs-grid-align-center-name  : 'center' !default;
+$iota-objs-grid-align-top-name     : 'top' !default;
+$iota-objs-grid-align-middle-name  : 'middle' !default;
+$iota-objs-grid-align-bottom-name  : 'bottom' !default;
+$iota-objs-grid-align-around-name  : 'around' !default;
+$iota-objs-grid-align-between-name : 'between' !default;
+$iota-objs-grid-reverse-name       : 'rev' !default;
+$iota-objs-grid-equal-height-name  : 'equal-height' !default;
+
+$iota-objs-grid-gutter-default     : $iota-global-gutter-default !default;
+$iota-objs-grid-gutter-extra       : () !default;
+
+$iota-objs-grid-aligned            : false !default;
+
+$iota-objs-grid-rev                : false !default;
+
+$iota-objs-grid-flex               : $iota-global-flex !default;
+$iota-objs-grid-equal-height       : false !default;
 
 
 
 
-.#{$iota-object-namespace}grid {
+$iota-objs-grid-var-grid     : $iota-global-objects-namespace + $iota-objs-grid-namespace;
+$iota-objs-grid-var-grid-mod : $iota-objs-grid-var-grid + "--";
+$iota-objs-grid-var-grid-col : $iota-objs-grid-var-grid + "__" + $iota-objs-grid-column-name;
+
+
+
+
+.#{$iota-objs-grid-var-grid} {
+  @include _iota-generate-unit('margin-left', -$iota-objs-grid-gutter-default);
   list-style: none;
-  margin-left: -$iota-grid-gutter-default;
+  box-sizing: border-box;
 
-  & > .#{$iota-object-namespace}grid__col {
-    display: inline-block;
-    padding-left:   $iota-grid-gutter-default;
-    padding-bottom: $iota-grid-gutter-default;
+  & > .#{$iota-objs-grid-var-grid-col} {
+    @include _iota-generate-unit('padding-left', $iota-objs-grid-gutter-default);
     width: 100%;
-    min-height: 1px;
-    vertical-align: top;
-    box-sizing: border-box;
+    box-sizing: inherit;
   }
-}
-
-
-
-
-// Grid Object Extra Alignents
-
-@if ( $iota-grid--aligned == true ) {
-
-  .#{$iota-object-namespace}grid--right {
-    text-align: right;
-
-    & > .#{$iota-object-namespace}grid__col {
-      text-align: left;
-    }
-  }
-
-  .#{$iota-object-namespace}grid--center {
-    text-align: center;
-
-    & > .#{$iota-object-namespace}grid__col {
-      text-align: left;
-    }
-  }
-
-  .#{$iota-object-namespace}grid--middle {
-    & > .#{$iota-object-namespace}grid__col {
-      vertical-align: middle;
-    }
-  }
-
-  .#{$iota-object-namespace}grid--bottom {
-    & > .#{$iota-object-namespace}grid__col {
-      vertical-align: bottom;
-    }
-  }
-
-}
-
-
-
-
-// Grid Object Reversed
-
-@if ( $iota-grid--rev == true ) {
-  
-  .#{$iota-object-namespace}grid--rev {
-    direction: rtl;
-    text-align: left;
-    
-    & > .#{$iota-object-namespace}grid__col {
-      direction: ltr;
-      text-align: left;
-    }
-  }
-  
 }
 
 
@@ -96,16 +56,171 @@ $iota-grid-gutter-extra   : () !default;
 
 // Grid Object Extra Gutters
 
-@each $name, $size in $iota-grid-gutter-extra {
+@each $gutter-name, $gutter-size in $iota-objs-grid-gutter-extra {
 
-  .#{$iota-object-namespace}grid--#{$name} {
-    margin-left: -$size;
+  .#{$iota-objs-grid-var-grid-mod + $gutter-name} {
+    @include _iota-generate-unit('margin-left', -$gutter-size);
 
-    & > .#{$iota-object-namespace}grid__col {
-      padding-left:   $size;
-      padding-bottom: $size;
+    & > .#{$iota-objs-grid-var-grid-col} {
+      @include _iota-generate-unit('padding-left', $gutter-size);
     }
 
+  }
+
+}
+
+
+
+
+// Grid Object Flex
+
+@if ( $iota-objs-grid-flex == true ) {
+
+  .#{$iota-objs-grid-var-grid} {
+    display: flex;
+    flex-flow: row wrap;
+
+    & > .#{$iota-objs-grid-var-grid-col} {
+      box-sizing: inherit;
+      flex-basis: auto;
+      min-width: 0;
+    }
+  }
+
+
+
+
+  // Flex Grid Align
+
+  @if ( $iota-objs-grid-aligned == true ) {
+
+    .#{$iota-objs-grid-var-grid-mod + $iota-objs-grid-align-center-name} {
+      justify-content: center;
+    }
+
+    .#{$iota-objs-grid-var-grid-mod + $iota-objs-grid-align-right-name} {
+      justify-content: flex-end;
+    }
+
+    .#{$iota-objs-grid-var-grid-mod + $iota-objs-grid-align-top-name} {
+      align-items: flex-start;
+    }
+
+    .#{$iota-objs-grid-var-grid-mod + $iota-objs-grid-align-middle-name} {
+      align-items: center;
+    }
+
+    .#{$iota-objs-grid-var-grid-mod + $iota-objs-grid-align-bottom-name} {
+      align-items: flex-end;
+    }
+
+    .#{$iota-objs-grid-var-grid-mod + $iota-objs-grid-align-around-name} {
+      justify-content: space-around;
+    }
+
+    .#{$iota-objs-grid-var-grid-mod + $iota-objs-grid-align-between-name} {
+      justify-content: space-between;
+    }
+
+  }
+
+
+
+
+  // Flex Grid Reversed
+
+  .#{$iota-objs-grid-var-grid-mod + $iota-objs-grid-reverse-name} {
+    flex-direction: row-reverse;
+  }
+
+
+
+
+  // Grid Object with Equal Height Columns
+
+  @if ($iota-objs-grid-equal-height == true) {
+
+    .#{$iota-objs-grid-var-grid-mod + $iota-objs-grid-equal-height-name} {
+
+      & > .#{$iota-objs-grid-var-grid-col} {
+        display: flex;
+      }
+    }
+
+  }
+
+
+
+
+// Grid Object Classic
+
+} @else {
+
+  .#{$iota-objs-grid-var-grid} {
+
+    & > .#{$iota-objs-grid-var-grid-col} {
+      display: inline-block;
+      @include _iota-generate-unit('padding-left', $iota-objs-grid-gutter-default);
+      width: 100%;
+      min-height: 1px;
+      vertical-align: top;
+    }
+  }
+
+
+
+
+  // Grid Object Extra Alignents
+
+  @if ( $iota-objs-grid-aligned == true ) {
+
+    .#{$iota-objs-grid-var-grid-mod + $iota-objs-grid-align-right-name} {
+      text-align: right;
+
+      & > .#{$iota-objs-grid-var-grid-col} {
+        text-align: left;
+      }
+    }
+
+    .#{$iota-objs-grid-var-grid-mod + $iota-objs-grid-align-center-name} {
+      text-align: center;
+
+      & > .#{$iota-objs-grid-var-grid-col} {
+        text-align: left;
+      }
+    }
+
+    .#{$iota-objs-grid-var-grid-mod + $iota-objs-grid-align-middle-name} {
+      & > .#{$iota-objs-grid-var-grid-col} {
+        vertical-align: middle;
+      }
+    }
+
+    .#{$iota-objs-grid-var-grid-mod + $iota-objs-grid-align-bottom-name} {
+      & > .#{$iota-objs-grid-var-grid-col} {
+        vertical-align: bottom;
+      }
+    }
+
+  }
+
+
+
+
+  // Grid Object Reversed
+
+  @if ( $iota-objs-grid-rev == true ) {
+    
+    .#{$iota-objs-grid-var-grid}--rev {
+      direction: rtl;
+      text-align: left;
+      
+      & > .#{$iota-objs-grid-var-grid-col} {
+        direction: ltr;
+        text-align: left;
+      }
+    }
+    
   }
 
 }
