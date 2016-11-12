@@ -1,6 +1,6 @@
 {
   "name": "iotacss-objs-grid",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Grid object for iotaCSS",
   "main": "_objects.grid.scss",
   "repository": {
