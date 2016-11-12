@@ -6,34 +6,34 @@ The grid object is responsible for building a smart grid when used with [Size](h
 ### Installation ###
 
 ```
-npm install --save iotacss-obj-grid
+npm install --save iotacss-objs-grid
 ```
 
 
 ### Options ###
 
 ```sass
-$iota-obj-grid-namespace          : 'grid' !default;
-$iota-obj-grid-column-name        : 'col' !default;
-$iota-obj-grid-align-right-name   : 'right' !default;
-$iota-obj-grid-align-center-name  : 'center' !default;
-$iota-obj-grid-align-top-name     : 'top' !default;
-$iota-obj-grid-align-middle-name  : 'middle' !default;
-$iota-obj-grid-align-bottom-name  : 'bottom' !default;
-$iota-obj-grid-align-around-name  : 'around' !default;
-$iota-obj-grid-align-between-name : 'between' !default;
-$iota-obj-grid-reverse-name       : 'rev' !default;
-$iota-obj-grid-equal-height-name  : 'equal-height' !default;
+$iota-objs-grid-namespace          : 'grid' !default;
+$iota-objs-grid-column-name        : 'col' !default;
+$iota-objs-grid-align-right-name   : 'right' !default;
+$iota-objs-grid-align-center-name  : 'center' !default;
+$iota-objs-grid-align-top-name     : 'top' !default;
+$iota-objs-grid-align-middle-name  : 'middle' !default;
+$iota-objs-grid-align-bottom-name  : 'bottom' !default;
+$iota-objs-grid-align-around-name  : 'around' !default;
+$iota-objs-grid-align-between-name : 'between' !default;
+$iota-objs-grid-reverse-name       : 'rev' !default;
+$iota-objs-grid-equal-height-name  : 'equal-height' !default;
 
-$iota-obj-grid-gutter-default     : $iota-global-gutter-default !default;
-$iota-obj-grid-gutter-extra       : () !default;
+$iota-objs-grid-gutter-default     : $iota-global-gutter-default !default;
+$iota-objs-grid-gutter-extra       : () !default;
 
-$iota-obj-grid-aligned            : false !default;
+$iota-objs-grid-aligned            : false !default;
 
-$iota-obj-grid-rev                : false !default;
+$iota-objs-grid-rev                : false !default;
 
-$iota-obj-grid-flex               : $iota-global-flex !default;
-$iota-obj-grid-equal-height       : false !default;
+$iota-objs-grid-flex               : $iota-global-flex !default;
+$iota-objs-grid-equal-height       : false !default;
 ```
 
 
