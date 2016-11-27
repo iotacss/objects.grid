@@ -129,8 +129,12 @@ $iota-objs-grid-var-grid-col : $iota-objs-grid-var-grid + "__" + $iota-objs-grid
 
   // Flex Grid Reversed
 
-  .#{$iota-objs-grid-var-grid-mod + $iota-objs-grid-reverse-name} {
-    flex-direction: row-reverse;
+  @if ( $iota-objs-grid-rev == true ) {
+
+    .#{$iota-objs-grid-var-grid-mod + $iota-objs-grid-reverse-name} {
+      flex-direction: row-reverse;
+    }
+
   }
 
 
@@ -211,12 +215,12 @@ $iota-objs-grid-var-grid-col : $iota-objs-grid-var-grid + "__" + $iota-objs-grid
   @if ( $iota-objs-grid-rev == true ) {
     
     .#{$iota-objs-grid-var-grid}--rev {
-      @include _iota-directional-property('direction', 'rtl', false);
-      @include _iota-directional-property('text-align', 'left', false);
+      @include _iota-direction-property('direction', 'rtl', false);
+      @include _iota-direction-property('text-align', 'left', false);
       
       & > .#{$iota-objs-grid-var-grid-col} {
-        @include _iota-directional-property('direction', 'ltr', false);
-        @include _iota-directional-property('text-align', 'left', false);
+        @include _iota-direction-property('direction', 'ltr', false);
+        @include _iota-direction-property('text-align', 'left', false);
       }
     }
     
