@@ -40,12 +40,12 @@ $iota-objs-grid-var-grid-col : $iota-objs-grid-var-grid + "__" + $iota-objs-grid
 
 
 .#{$iota-objs-grid-var-grid} {
-  @include _iota-generate-unit('margin-left', -$iota-objs-grid-gutter-default);
+  @include _iota-generate-unit('margin', 'left', _iota-negative-unit($iota-objs-grid-gutter-default));
   list-style: none;
   box-sizing: border-box;
 
   & > .#{$iota-objs-grid-var-grid-col} {
-    @include _iota-generate-unit('padding-left', $iota-objs-grid-gutter-default);
+    @include _iota-generate-unit('padding', 'left', $iota-objs-grid-gutter-default);
     width: 100%;
     box-sizing: inherit;
   }
@@ -59,10 +59,10 @@ $iota-objs-grid-var-grid-col : $iota-objs-grid-var-grid + "__" + $iota-objs-grid
 @each $gutter-name, $gutter-size in $iota-objs-grid-gutter-extra {
 
   .#{$iota-objs-grid-var-grid-mod + $gutter-name} {
-    @include _iota-generate-unit('margin-left', -$gutter-size);
+    @include _iota-generate-unit('margin', 'left', _iota-negative-unit($gutter-size));
 
     & > .#{$iota-objs-grid-var-grid-col} {
-      @include _iota-generate-unit('padding-left', $gutter-size);
+      @include _iota-generate-unit('padding', 'left', $gutter-size);
     }
 
   }
@@ -99,7 +99,7 @@ $iota-objs-grid-var-grid-col : $iota-objs-grid-var-grid + "__" + $iota-objs-grid
     }
 
     .#{$iota-objs-grid-var-grid-mod + $iota-objs-grid-align-right-name} {
-      justify-content: flex-end;
+      @include _iota-direction-property('justify-content', 'flex-end', false);
     }
 
     .#{$iota-objs-grid-var-grid-mod + $iota-objs-grid-align-top-name} {
@@ -160,7 +160,6 @@ $iota-objs-grid-var-grid-col : $iota-objs-grid-var-grid + "__" + $iota-objs-grid
 
     & > .#{$iota-objs-grid-var-grid-col} {
       display: inline-block;
-      @include _iota-generate-unit('padding-left', $iota-objs-grid-gutter-default);
       width: 100%;
       min-height: 1px;
       vertical-align: top;
@@ -175,10 +174,10 @@ $iota-objs-grid-var-grid-col : $iota-objs-grid-var-grid + "__" + $iota-objs-grid
   @if ( $iota-objs-grid-aligned == true ) {
 
     .#{$iota-objs-grid-var-grid-mod + $iota-objs-grid-align-right-name} {
-      text-align: right;
+      text-align: _iota-direction('right');
 
       & > .#{$iota-objs-grid-var-grid-col} {
-        text-align: left;
+        text-align: _iota-direction('left');
       }
     }
 
@@ -186,7 +185,7 @@ $iota-objs-grid-var-grid-col : $iota-objs-grid-var-grid + "__" + $iota-objs-grid
       text-align: center;
 
       & > .#{$iota-objs-grid-var-grid-col} {
-        text-align: left;
+        text-align: _iota-direction('left');
       }
     }
 
@@ -212,12 +211,12 @@ $iota-objs-grid-var-grid-col : $iota-objs-grid-var-grid + "__" + $iota-objs-grid
   @if ( $iota-objs-grid-rev == true ) {
     
     .#{$iota-objs-grid-var-grid}--rev {
-      direction: rtl;
-      text-align: left;
+      @include _iota-directional-property('direction', 'rtl', false);
+      @include _iota-directional-property('text-align', 'left', false);
       
       & > .#{$iota-objs-grid-var-grid-col} {
-        direction: ltr;
-        text-align: left;
+        @include _iota-directional-property('direction', 'ltr', false);
+        @include _iota-directional-property('text-align', 'left', false);
       }
     }
     
