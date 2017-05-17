@@ -1,3 +1,5 @@
+**iotaCSS is now a monorepo and all individual repositories are part of it. Please open issues or PRs here: [https://github.com/iotacss/iotacss](https://github.com/iotacss/iotacss).**
+
 # Grid Object #
 
 The grid object is responsible for building a smart grid when used with [Size](https://github.com/iotacss/utilities.size), [Push](https://github.com/iotacss/utilities.push) or [Pull](https://github.com/iotacss/utilities.push) utilities.
